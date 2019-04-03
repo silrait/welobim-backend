@@ -2,6 +2,13 @@ language: python
 python:
   - "3.6"
 
+before_install:
+  - sudo apt-get autoremove sqlite3
+  - sudo apt-get -y update
+  - sudo apt-cache show sqlite3
+  - sudo apt-get install sqlite3=3.22.0-1
+  - sudo sqlite3 -version
+
 install:
   - pip install -r requirements.txt
 
