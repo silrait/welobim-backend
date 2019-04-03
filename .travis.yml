@@ -3,6 +3,7 @@ python:
   - "3.6"
 
 before_install:
+  - lsb_release -a
   - sudo apt-get autoremove sqlite3
   - sudo apt-get -y update
   - sudo apt-cache show sqlite3
