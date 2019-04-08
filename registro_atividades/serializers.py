@@ -15,8 +15,14 @@ class UserSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class UserGetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email']
+
+
 class CompanyUserGetSerializer(serializers.ModelSerializer):
-    user = UserSerializer(many=False, read_only=True)
+    user = UserGetSerializer(many=False, read_only=True)
     company = CompanySerializer(many=False, read_only=True)
 
     class Meta:
